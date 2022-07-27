@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		h1 {color: white;}
+		h3 {color: white;}
+	</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -9,8 +13,11 @@
 
 </head>
 <body>
-
-
-
+	<h1>{{name}}</h1>
+	{%if name in fb%}
+		<h3>in friends</h3>
+	{%else%}
+		<h3>not in friends</h3>
+	{%endif%}
 </body>
 </html>
