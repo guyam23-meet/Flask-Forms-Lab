@@ -6,16 +6,21 @@ app = Flask(  # Create a flask app
 	template_folder='templates',  # Name of html file folder
 	static_folder='static'  # Name of directory for static files
 )
+app.config['SECRET_KEY'] = 'super-secret-key'
 
 
-username = "llo2ay"
-password = "123"
+username = "(╯°□°）╯︵ ┻━┻"
+password = "):<"
 facebook_friends=["Loai","Yonathan","Adan", "George", "Fouad", "Celina"]
 
 
-@app.route('/')  # '/' for the default page
+@app.route('/',methods=["GET","POST"])  # '/' for the default page
 def login():
-  return render_template('login.html')
+	if request.method=="POST":
+		if request.form['username']==username && request.form['password']==password:
+			return render_template('home.html')
+	else:
+		return render_template('login.html')
   
 
 
