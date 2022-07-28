@@ -9,15 +9,13 @@ app = Flask(  # Create a flask app
 #sapp.config['SECRET_KEY'] = 'super-secret-key'
 
 
-username = "(╯°□°）╯︵ ┻━┻"
-password = "flip"
 facebook_friends=["Never","Gonna","Give", "You", "Up"]
-
+users = {"(╯°□°）╯︵ ┻━┻":"flip","guy":"me","'tis I":"it's me"}
 
 @app.route('/',methods=["GET","POST"])  # '/' for the default page
 def login():
 	if request.method=="POST":
-		if request.form['username']==username and request.form['password']==password:
+		if request.form['username'] in users and users[request.form['username']]==request.form['password']:
 			return redirect(url_for('home'))
 		else:
 			return render_template('login.html')
